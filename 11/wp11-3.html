@@ -1,0 +1,53 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>イベントオブジェクト</title>
+	<style>
+		ul {
+			width: 200px;
+			height: 200px;
+			list-style-type: none;
+			padding: 0;
+			background-color: #aaa;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+      transition: background-color 1s;
+		}
+		
+		li {
+			width: 100px;
+			height: 50px;
+			background-color: antiquewhite;
+			line-height: 50px;
+			text-align: center;
+      transition: background-color 1s;
+		}
+		li:hover {
+			cursor: pointer;
+		}
+
+    .change {
+      background-color: yellowgreen;
+    }
+	</style>
+</head>
+<body>
+	<h2>イベントオブジェクト</h2>
+	<ul id="cont">
+		<li id="item0">東京</li>
+		<li id="item1">大阪</li>
+		<li id="item2">京都</li>
+	</ul>
+	<script>
+    'use strict';
+    const cont = document.querySelector('#cont');
+    cont.addEventListener('click', (event) => {
+      event.target.classList.toggle('change');
+    });
+	</script>
+</body>
+</html>

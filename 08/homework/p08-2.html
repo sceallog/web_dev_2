@@ -1,0 +1,67 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>p08-2</title>
+
+</head>
+<body>
+  <main>
+    <h1>乱数の発生回数</h1>
+    <p>1−10の間の乱数を発生させ、1−10の数ごとの発生回数を表示します。</p>
+    <div id="input-cnt">
+      <div>乱数を発生させる回数：</div>
+      <input type="number" name="" id="kaisuu" min="1" value="1">
+      <div id="btn-cnt">
+        <button onclick="countOccurrences()">乱数発生</button>
+        <button onclick="resetCounts()">Reset</button>
+      </div>
+    </div>
+    <ul id="occurrence-list"></ul>
+  </main>
+
+  <script>
+    'use strict';
+    // 乱数の発生回数の格納用配列
+    let occurrences = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let itemList = document.querySelector('#occurrence-list');
+
+    function countOccurrences() {
+      // 入力した回数を取得し、値が適切かを確認
+      const rounds = Number(document.querySelector('#kaisuu').value);
+
+      if (!(rounds > 0) || isNaN(rounds)) {
+        window.alert('回数は1以上にしてください。');
+        return;
+      }
+      
+      // ボタンを押すたびにリストのすべての要素を更新
+      itemList.replaceChildren();
+
+      // 1−10の乱数を発生させ各乱数から１を引いて配列のその値のインデックスに格納
+      for (let i = 0; i < rounds; i++) {
+        let randNum = Math.floor(Math.random() * 10) + 1;
+        occurrences[randNum - 1] += 1;
+      }
+      
+      // 配列から各乱数の発生数を取得し、リストエレメントに追加
+      for (let i = 0; i < occurrences.length; i++) {
+        let listItem = document.createElement('li');
+        listItem.textContent = (i + 1) + 'の回数：' + occurrences[i];
+        itemList.append(listItem);
+      }
+    }
+
+    // おまけ：Resetボタンを押したらインプットの値を１に、配列のすべての要素の値を０にし、
+    // リストの表示も全て消す。
+    function resetCounts() {
+      itemList.replaceChildren();
+      occurrences.fill(0);
+      document.querySelector('#kaisuu').value = 1;
+    }
+  </script>
+</body>
+</html>

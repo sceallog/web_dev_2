@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p04-0</title>
+</head>
+<body>
+  <h1>オブジェクトの利用</h1>
+  <button onclick="attack()">攻撃</button>
+  <script>
+    let monster = {
+      name:"ホゲホゲ",
+      power:100,
+      //nameとpowerを教示するメソッド
+      status:function() {
+        console.log(this.name + "の残りの力：　" + this.power);
+      }
+
+    }
+
+    function attack() {
+      attack_power = Math.floor(Math.random() * 20) + 1;
+      console.log("今回の攻撃力：" + attack_power);
+      monster.power = monster.power - attack_power;
+      monster.status()
+      if (monster.power <= 0) {
+        console.log("勝ち")
+      }
+    }
+  </script>
+</body>
+</html>

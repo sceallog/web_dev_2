@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/p15-2.css">
+  <title>p15-2</title>
+</head>
+<body>
+  <a href="../index.html" id="index">一覧</a>
+  <h1>15-2: じゃんけんゲーム</h1>
+  <p>Startでじゃんけん開始、Stopを押した時の手で勝負が決まります</p>
+
+  <div id="janken-cnt">
+    <div id="hands-cnt">
+      <div class="hands" id="computer-hand-cnt">
+        <h2>Computer</h2>
+        <p></p>
+        <img src="./img/j-gu.png" id="computer-hand">
+      </div>
+      <div class="hands" id="player-hand-cnt">
+        <h2>あなた (You)</h2>
+        <p></p>
+        <img src="./img/j-gu.png" id="player-hand">
+      </div>
+    </div>
+    <div class="invisible" id="result-cnt"></div>
+  </div>
+
+  <div id="button-cnt">
+    <button id="start">Start</button>
+    <button id="stop" disabled>Stop</button>
+  </div>
+  
+  <script src="js/p15-2.js"></script>
+</body>
+</html>

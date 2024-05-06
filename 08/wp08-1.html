@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>繰り返し</title>
+  </head>
+<body>
+  <h3>while</h3>
+  <div id="ex1"></div>
+
+  <h3>do while</h3>
+  <div id="ex2"></div>
+  
+  <h3>for文</h3>
+  <div id="ex3"></div>
+  
+  <h3>配列</h3>
+  <div id="ex4"></div>
+  
+  <h3>配列（for ofの使用）</h3>
+  <ol id="ex5"></ol>
+  
+  <h3>オブジェクト(for inの使用）</h3>
+  <div id="ex6"></div>
+
+  
+  <script>
+    "use strict";
+    // while
+    let i = 0;
+    while (i < 5) {
+      document.querySelector('#ex1').innerHTML+='起きてください！<br>';
+      i += 1;
+    };
+
+    // do while
+    let j = 0;
+    do {
+    document.querySelector('#ex2').innerHTML+='起きてください！<br>';
+    j += 1;
+    } while (j < 5);
+
+    // for
+    for (let k = 0; k < 5; k++) {
+      document.querySelector('#ex3').innerHTML+='起きてください!<br>';
+    };
+
+    //
+    const menu = ['⻘椒肉絲', '回鍋肉', '油淋鶏', '八宝菜'];
+    for (let m = 0; m < menu.length; m++) {
+      document.querySelector('#ex4').innerHTML+= m+'番目は' + menu[m] + '<br>';
+    }
+
+    //
+    for (let dish of menu) {
+      document.querySelector('#ex5').innerHTML+= '<li>' + dish + '</li>';
+    }
+
+    // object
+    const obj = {name: 'John', age: 23};
+    for (let key in obj) {
+      document.querySelector('#ex6').innerHTML+= key + 'の値は' + obj[key] + '<br>';
+    }
+
+    //break & continue
+    const lists=[9, 3, 4, -10, 2, 3];
+    for (let m = 0; m < lists.length; m++) {
+      if (lists[m] < 0) {continue;}
+      document.querySelector('#ex4').innerHTML+= m + '番目＝' + lists[m] + '<br>';
+    }
+  </script>
+</body>
+</html>

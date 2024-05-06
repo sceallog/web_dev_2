@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>練習３</title>
+</head>
+<body>
+  <script>
+    let radius = Number(window.prompt("円錐の半径をcmで入力してください。"))
+    let height = Number(window.prompt("円錐の高さをcmで入力してください。"))
+
+    function coneVolume(radius, height) {
+      let volume = ((Math.PI * (radius ** 2)) * height);
+      return volume;
+    }
+
+    message = "円錐の体積は" + coneVolume(radius, height) + "立方cmです。" 
+    window.alert(message);
+  </script>
+</body>
+</html>

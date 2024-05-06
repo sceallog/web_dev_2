@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>input要素の入力値取得</title>
+
+</head>
+<body>
+	<h3>テキストボックス</h3>
+  <input type="text" id="in1">
+  <h3>ライダー</h3>
+  <input type="range" id="in2">
+  <br>
+  <button onclick="showValues()">入力値を表示</button>
+  <p id="out1">ここにText</p>
+  <p id="out2">ここにRange</p>
+
+  <script>
+    "use strict"
+    function showValues() {
+      let textInput = document.querySelector("#in1");
+      let rangeInput = document.querySelector("#in2");
+      // window.alert("input=" + textInput.value + ", slider=" + rangeInput.value);
+      document.querySelector("#out1").textContent=textInput.value;
+      document.querySelector("#out2").textContent=rangeInput.value;
+    }
+  </script>
+</body>
+</html>

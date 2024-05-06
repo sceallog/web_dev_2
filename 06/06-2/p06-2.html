@@ -1,0 +1,107 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>p06-2</title>
+</head>
+<body>
+  <div id="main-container">
+    <h1>スライダーで背景色と文字色を変える</h1>
+    <div id="control-panel">
+      <!-- 背景色の変更を行うスライダーなどの部分 -->
+      <div class="container" id="background-cnt">
+        <div class="slider-value-display" id="bkg-display">
+          <p>背景色：<span class="hex-display" id="bkg-hex"></span></p>
+        </div>
+
+        <label for="bkg-colour-red">R:</label>
+        <input type="range" name="bkg-colour-red" class="slider" id="bkg-slider-1" min="0" max="255" value="0">
+        <label for="bkg-colour-green">G:</label>
+        <input type="range" name="bkg-colour-green" class="slider" id="bkg-slider-2" min="0" max="255" value="0">
+        <label for="bkg-colour-blue">B:</label>
+        <input type="range" name="bkg-colour-blue" class="slider" id="bkg-slider-3" min="0" max="255" value="0">
+
+      <!-- 文字色の変更を行うスライダーなどの部分 -->
+      </div>
+      <div class="container" id="text-cnt">
+        <div class="slider-value-display" id="text-display">
+          <p>文字色：<span class="hex-display" id="text-hex"></span></p>
+        </div>
+
+        <label for="text-colour-red">R:</label>
+        <input type="range" name="text-colour-red" class="slider" id="text-slider-1" min="0" max="255" value="0">
+        <label for="text-colour-green">G:</label>
+        <input type="range" name="text-colour-green" class="slider" id="text-slider-2" min="0" max="255" value="0">
+        <label for="bkg-colour-blue">B:</label>
+        <input type="range" name="text-colour-blue" class="slider" id="text-slider-3" min="0" max="255" value="0">
+
+      </div>
+    </div>
+
+    <!-- ボタンの部分 -->
+    <div id="button-container">
+      <button type="button" id="colour-change-btn" onclick="changeColour()">色を変える</button>
+      <button type="button" id="reset-btn" onclick="resetSliders()">リセット</button>
+    </div>
+
+    <!-- 変更の結果の表示をする部分 -->
+    <div class="result-display" id="colour-change-display">
+      <div>ここで背景色と文字色が変わります。</d>
+    </div>
+  </div>
+
+
+  <script>
+    function changeColour () {
+      let backgroundColours = [];
+      let textColours = [];
+
+      // 各スライダーの値を数字に変換し、背景と文字のそれぞれの配列に追加
+      for (let i = 1; i < 4; i++) {
+        let backgroundValue = document.querySelector("#bkg-slider-" + i).value;
+        let textValue = document.querySelector("#text-slider-" + i).value;
+        backgroundColours.push(Number(backgroundValue));
+        textColours.push(Number(textValue));
+      }
+
+      // 上記に得た数値配列を16進数文字列に変換
+      let backgroundHex = convertToHex(backgroundColours);
+      let textHex = convertToHex(textColours);
+
+      document.querySelector('#bkg-hex').textContent = backgroundHex;
+      document.querySelector('#text-hex').textContent = textHex;
+      
+      document.querySelector('#colour-change-display').style.color = textHex;
+      document.querySelector('#colour-change-display').style.backgroundColor = backgroundHex;
+    }
+
+    // convertToHex(): 配列を引数として渡して、その配列の各値が一つの文字だけなら文字列の長さが2になるまで
+    // 先頭に'0'を追加し、最後の配列の値をjoinで一つの文字列にしてから頭に'#'をつける
+    function convertToHex (arr) {
+      rgbParts = arr.map((item) => {
+        hexValue = item.toString(16).toUpperCase();
+        return hexValue.length < 2 ? hexValue.padStart(2, '0') : hexValue;
+      });
+
+      result = rgbParts.join('');
+      return result.padStart(7, '#');
+    };
+
+    // resetSliders(): リセットボタンを押すとスライダーの値を'0'に、結果表示の部分を最初の状態に、そして16進数の
+    // 値が書いてある部分を空文字列に初期化
+    function resetSliders() {
+      let sliders = ['#bkg-slider-1', '#bkg-slider-2', '#bkg-slider-3', '#text-slider-1', '#text-slider-2', '#text-slider-3', ]
+      sliders.forEach(slider => {
+        document.querySelector(slider).value = '0';
+      });
+      document.querySelector('#colour-change-display').style.color = 'black';
+      document.querySelector('#colour-change-display').style.backgroundColor = 'white';
+      document.querySelector('#bkg-hex').textContent = '';
+      document.querySelector('#text-hex').textContent = '';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p12-2</title>
+  <style>
+    canvas {border: 1px solid grey}
+  </style>
+</head>
+<body>  
+  <canvas width="640" height="480"></canvas>
+  <br>
+  <button id="btn">描画</button>
+
+  <script>
+    "use strict";
+    let c = {x: 0, y: 0, r: 40};
+    const cv = document.querySelector("canvas");
+    const gc = cv.getContext("2d");
+    const btn = document.querySelector("#btn");
+
+    btn.addEventListener("click", () => {
+      const xVal = Math.floor(Math.random() * ((cv.width - c.r) - (0 + c.r) + 1) + 0 + c.r);
+      const yVal = Math.floor(Math.random() * ((cv.height - c.r) - (0 + c.r) + 1) + 0 + c.r);
+      c.x = xVal;
+      c.y = yVal;
+      draw();
+    });
+
+    function draw() {
+      gc.clearRect(0, 0, cv.width, cv.height);
+      gc.beginPath();
+      gc.lineWidth = 2;
+      gc.strokeStyle = "green";
+      gc.arc(c.x, c.y, c.r, 0, 2 * Math.PI);
+      gc.stroke();
+    }
+  </script>
+</body>
+</html>

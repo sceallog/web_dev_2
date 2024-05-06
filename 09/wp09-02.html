@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>イベントリスナー</title>
+</head>
+<body>
+	<input type="text" id="inp1">
+	<button id="btn1">入力値を表示</button>
+	<span id="out1"></span>
+
+	<script>
+		"use strict";
+    const btn = document.querySelector('#btn1');
+    btn.addEventListener('click', () => {
+			let inText = document.querySelector("#inp1").value;
+			document.querySelector("#out1").textContent=inText;
+		});
+
+
+	</script>
+</body>
+</html>

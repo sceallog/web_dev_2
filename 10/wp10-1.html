@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>入出力2</title>
+</head>
+<body>
+	<h3>ラジオボタン</h3>
+	<div id="radio">
+		<input type="radio" name="place" value="KYOTO">京都
+		<input type="radio" name="place" value="TOKYO">東京
+		<input type="radio" name="place" value="OSAKA">大阪
+		<button id="btn1">都道府県</button>
+	</div>
+	<h3>チェックボックス</h3>
+	<div id="checkbox">
+		<input type="checkbox" name="DB" value="MYSQL">MySQL
+		<input type="checkbox" name="DB" value="ORACLE">Oracle
+		<input type="checkbox" name="DB" value="SQLSERVER">SQL Server
+		<button id="btn2">使用したデータベース</button>
+	</div>
+	<h3>セレクトボックス（単一）</h3>
+	<select id="sel1" name="address1">
+		<option value="KYOTO">京都</option>
+		<option value="TOKYO">東京</option>
+		<option value="OSAKA">大阪</option>
+	</select>
+	<button id="btn3">住所</button>
+
+	<h3>セレクトボックス（複数）</h3>
+	<select id="sel2" name="address2" multiple size="3">
+		<option value="KYOTO">京都</option>
+		<option value="TOKYO">東京</option>
+		<option value="OSAKA">大阪</option>
+	</select>
+	<button id="btn4">場所</button>
+
+
+	<script>
+		"use strict";
+		//ラジオボタン
+    const btn1=document.querySelector("#btn1");
+    btn1.addEventListener("click", () => {
+      let result = '';
+      const ops = document.querySelectorAll("#radio input");
+      for (let i=0; i < ops.length; i++) {
+        if (ops[i].checked) {
+          result = ops[i].value;
+        }
+      }
+      console.log(`ラジオボタン = ${result}`);
+    })
+		
+		//チェックボックス
+    const btn2=document.querySelector("#btn2");
+    btn2.addEventListener("click", () => {
+      let result = [];
+      const ops = document.querySelectorAll("#checkbox input");
+      for (let i=0; i < ops.length; i++) {
+        if (ops[i].checked) {
+          result.push(ops[i].value);
+        }
+      }
+      console.log(`チェックボックス = ${result.join(", ")}`);
+    })
+
+
+		
+		//セレクトボックス単一
+    const btn3=document.querySelector("#btn3");
+    btn3.addEventListener("click", () => {
+      let result = document.querySelector("#sel1").value;
+      console.log(`セレクトボックス（単一） = ${result}`);
+    })
+
+
+		//セレクトボックス複数
+    const btn4=document.querySelector("#btn4");
+    btn4.addEventListener("click", () => {
+      let result = [];
+      const ops = document.querySelector("#sel2").options;
+      for (let i=0; i < ops.length; i++) {
+        if (ops[i].selected) {
+          result.push(ops[i].value);
+        }
+      }
+      console.log(`セレクトボックス（複数） = ${result.join(", ")}`);
+    });
+
+		
+	
+
+
+	</script>
+</body>
+</html>

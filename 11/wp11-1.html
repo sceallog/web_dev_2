@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>CSSアニメーション</title>
+    <style>
+      .square1 {
+        width: 200px; height: 200px;
+        border:3px solid blue;
+        margin: 5px;
+        transition: background-color 3s;
+      }
+      .square1:hover {
+        background-color: black;
+      }
+      .square2 {
+        width: 200px; height: 200px;
+        border:3px solid orange;
+        margin: 5px;
+        transition: transform 0.5s linear 0s;
+      }
+
+      .animation1 {
+        /* width: 400px;
+        background-color: coral; */
+        transform: scale(0.6, 0.6) rotate(360deg);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSSアニメーション</h1>
+    <div class="square1">HTMLとCSSのみでTransition</div>
+    <div class="square2" id="div2">JavascriptでTransition</div>
+    <script>
+      const div2 = document.querySelector('#div2');
+      div2.addEventListener('click', () => {
+        // div2.style.backgroundColor = 'black';
+        div2.classList.toggle('animation1');
+      })
+
+    </script>
+  </body>
+</html>

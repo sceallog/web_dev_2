@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>配列の利用1</title>
+</head>
+<body>
+  <h3>メニュー</h3>
+  <ol start="0">
+    <li>青椒肉絲</li>
+    <li>回鍋肉</li>
+  </ol>
+  注文するメニュー番号は？<input type="number" id="menu">
+  <button onclick="order()">注文</button>
+  <div id="name"></div>
+  <script>
+    "use strict";
+    const menu = ["青椒肉絲","回鍋肉","油淋鶏","八宝菜"]
+    function order() {
+      const inputNumber = document.querySelector("#menu").value;
+      if (menu[inputNumber] === undefined) {
+        document.querySelector("#name").textContent = "選んだアイテムがメニューにありません。"
+      } else {
+        document.querySelector("#name").textContent = menu[inputNumber];
+      }
+    }
+  </script>
+</body>
+</html>

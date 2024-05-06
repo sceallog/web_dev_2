@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>Canvasアニメーショ</title>
+	<style>
+		canvas { border : 1px solid gray;}
+	</style>
+</head>
+<body>
+	<h1>Canvasアニメーション</h1>
+	<canvas width="640px" height="480px"></canvas>
+
+	<script>
+    const cv = document.querySelector("canvas");
+    const gc = cv.getContext("2d");
+
+    // 四角形
+    gc.lineWidth = 10;
+    gc.strokeStyle = "pink";
+    gc.strokeRect(50, 50, 100, 100);
+
+    gc.lineWidth = 3;
+    gc.strokeStyle = "#33c";
+    gc.strokeRect(100, 100, 100, 100);
+    
+    // 四角形塗りつぶし
+    gc.fillStyle = "#99ffff";
+    gc.fillRect(100, 100, 100, 100)
+
+    // 直線
+    gc.beginPath();
+    gc.lineWidth = 2;
+    gc.strokeStyle = "blue";
+    gc.moveTo(300, 50);
+    gc.lineTo(400, 50);
+    gc.lineTo(400, 150);
+    gc.closePath();
+    gc.stroke();
+    gc.fill();
+
+    // 円の描画
+    gc.beginPath();
+    gc.lineWidth = 5;
+    gc.strokeStyle = "red";
+    gc.arc(250, 340, 40, 0, 2 * Math.PI * 3/4);
+    gc.lineTo(250, 340);
+    gc.closePath();
+    gc.stroke();
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>第4回:スコープ</title>
+</head>
+<body>
+
+  <script>
+    function chkScope() {
+      let count=0;
+      console.log(myName);
+      if (myName=="John") {
+        count=count+1;              //サブブロック内でcountは使用可能
+        console.log("(1)count="+count);
+      }
+      console.log("(2)count="+count);
+      return count;
+    }
+    let myName="John";
+    let out1=chkScope();
+    console.log("結果："+out1);
+    console.log("(3)count="+count);    //スコープ外なのでcountを参照すると not defined
+  </script>
+</body>
+</html>

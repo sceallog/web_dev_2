@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wp08-3</title>
+</head>
+<body>
+  <p>querySelectorAllを用いて、li要素を取得する</p>
+  <ul id="station">
+    <li>新大阪</li>
+    <li>京都</li>
+    <li>名古屋</li>
+    <li>新横浜</li>
+    <li>品川</li>
+    <li>東京</li>
+  </ul>
+  <button onclick="show()">リスト取得</button>
+  <div id="output"></div>
+
+  <script>
+    'use strict';
+    function show() {
+      let out = '';
+      const lists = document.querySelectorAll('#station li');
+      for (let i = 0; i < lists.length; i++) {
+        out += lists[i].textContent + ' ';
+      }
+      document.querySelector('#output').textContent = out;
+    }
+  </script>
+</body>
+</html>

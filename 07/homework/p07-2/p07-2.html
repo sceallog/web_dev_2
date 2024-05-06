@@ -1,0 +1,63 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>p07-2</title>
+</head>
+<body>
+  <main>
+    <h1>レストランの注文</h1>
+    <!-- メニューを選ぶボタン。押したら「提供待ち」に表示される -->
+    <div class="container" id="menu-cnt">
+      <h2>メニュー</h2>
+      <button class="menu-items" id="menu-1" onclick="placeOrder(0)">天麩羅</button>
+      <button class="menu-items" id="menu-2" onclick="placeOrder(1)">肉じゃが</button>
+      <button class="menu-items" id="menu-3" onclick="placeOrder(2)">親子丼</button>
+      <button class="menu-items" id="menu-4" onclick="placeOrder(3)">天丼</button>
+      <button class="menu-items" id="menu-5" onclick="placeOrder(4)">豚生姜焼き定食</button>
+      <button class="menu-items" id="menu-6" onclick="placeOrder(5)">だし巻き</button>
+      <button class="menu-items" id="menu-7" onclick="placeOrder(6)">シマホッケ定食</button>
+      <button class="menu-items" id="menu-8" onclick="placeOrder(7)">お造りの盛合せ</button>
+      <button class="menu-items" id="menu-9" onclick="placeOrder(8)">冷奴</button>
+      <button class="menu-items" id="menu-10" onclick="placeOrder(9)">沖縄産もずく</button>
+      <button class="menu-items" id="menu-10" onclick="placeOrder(10)">牛すじ煮込み</button>
+      <button class="menu-items" id="menu-10" onclick="placeOrder(11)">生ビール</button>
+    </div>
+    <!-- まだ提供されていない注文品を表示する -->
+    <div class="container" id="wait-list-cnt">
+      <h2>提供待ち</h2>
+      <div id="wait-list"></div>
+    </div>
+    <!-- 最後に提供された注文品を表示する -->
+    <div class="container" id="finish-order-cnt">
+      <h2>提供</h2>
+      <div id="finished-item"></div>
+      <button id="finish-btn" onclick="deliverOrder()">提供</button>
+    </div>
+  </main>
+
+  <script>
+    "use strict";
+    let menu = ['天麩羅', '肉じゃが', '親子丼', '天丼', '豚生姜焼き定食', 'だし巻き', 'シマホッケ定食', 'お造りの盛合せ', '冷奴', '沖縄産もずく', '牛すじ煮込み', '生ビール'];
+    let orders = [];
+    let waitingOrders = document.querySelector('#wait-list');
+
+    // 注文が登録されたら提供待ち配列に追加し、表示する
+    function placeOrder(item) {
+      orders.push(menu[item])
+      waitingOrders.textContent = orders.join(', ');
+    }
+
+    /* 一番古い注文から順番に注文品を提供し、
+    最後に出した物は配列から出され提供項目に表示される*/
+    function deliverOrder() {
+      let deliveredOrder = orders.shift();
+      document.querySelector('#finished-item').textContent = deliveredOrder;
+      waitingOrders.textContent = orders.join(', ');
+    }
+  </script>
+</body>
+</html>

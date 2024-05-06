@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>ウェブページへの出力</title>
+</head>
+<body>
+  <button onclick="show('どかーん')">押してね</button>
+
+  <script>
+    "use strict";
+    function show(message) {
+      let btn = document.querySelector("button");
+      btn.textContent = message;
+    }
+  </script>
+
+</body>
+</html>

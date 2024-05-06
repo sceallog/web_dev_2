@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>スライダー</title>
+</head>
+<body>
+	<section>
+		<h3>clickイベント</h3>
+		<input type="range" id="input1">
+		<button id="btn">入力値を表示</button>
+		<span id="output1"></span>
+	</section>
+	<section>
+		<h3>inputイベント</h3>
+		<input type="range" id="input2">
+		<span id="output2"></span>
+	</section>
+	<section>
+		<h3>changeイベント</h3>
+		<input type="range" id="input3">
+		<span id="output3"></span>
+	</section>
+
+	<script>
+		"use strict";
+    const btn = document.querySelector('#btn');
+
+    btn.addEventListener('click', () => {
+      let sliderValue = document.querySelector('#input1').value;
+      document.querySelector('#output1').textContent = sliderValue;
+    })
+
+    const range2 = document.querySelector('#input2');
+
+    range2.addEventListener('input', () => {
+      let sliderValue = document.querySelector('#input2').value;
+      document.querySelector('#output2').textContent = sliderValue;
+    })
+
+    const range3 = document.querySelector('#input3');
+
+    range3.addEventListener('change', () => {
+      let sliderValue = document.querySelector('#input3').value;
+      document.querySelector('#output3').textContent = sliderValue;
+    })
+	</script>
+</body>
+</html>

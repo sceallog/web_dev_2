@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>イベントの伝播</title>
+</head>
+<body>
+	<h2>イベントの伝播</h2>
+	<p>親要素div、子要素buttonを用意し、divとbuttonそれぞれにイベントリスナーを設定する</p>
+	<p>ボタンをクリックすると、buttonに設定したイベントリスナーの処理に続き、親要素のdivに設定したイベントリスナーが実行される。</p>
+	<p>結果はconsole.log参照</p>
+	<div id="d1">
+		<button id="b1">ボタン</button>
+	</div>
+	<script>
+		"use strict";
+    document.querySelector('div').addEventListener('click', () => {
+      console.log('**** divでクリックイベントを処理 ****');
+    })
+    document.querySelector('button').addEventListener('click', () => {
+      console.log('**** buttonでクリックイベントを処理 ****');
+    })
+	</script>
+</body>
+</html>

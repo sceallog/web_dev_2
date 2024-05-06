@@ -1,0 +1,25 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>演習1-1</title>
+</head>
+<body>
+  <script>
+    let input1 = Number(window.prompt('数字を入力してください。'));
+    let input2 = Number(window.prompt('もう一つ数字を入力してください。'));
+    let sum = input1 + input2;
+    let product = input1 * input2;
+    let quotient = Math.floor(input1 / input2);
+    let remainder = input1 % input2;
+
+    console.log('1回目の入力の値: ' + input1 + '  2回目の入力の値: ' + input2);
+    console.log('足し算の結果: ' + sum);
+    console.log('かけ算の結果: ' + product);
+    console.log('割り算の結果の商（整数部）: ' + quotient);
+    console.log('割り算の結果の余り: ' + remainder);
+  </script>
+</body>
+</html>

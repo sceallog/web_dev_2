@@ -1,0 +1,56 @@
+<!-- M23W0012 Buettner Sven-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>表示位置の変更 (p09-2)</title>
+</head>
+<body>
+  <main>
+    <h1>表示位置を変える</h1>
+    <div class="container" id="outer-cnt">
+      <div class="container" id="inner-cnt"></div>
+    </div>
+    <div class="container" id="slider-cnt">
+      <div class="container" id="slider-hor-cnt">
+        <label for="slider-lr">左右</label>
+        <input type="range" class="slider" id="slider-lr" value="0" min="0" max="300">
+        <div class="slider-value" id="slider-val-lr">0px</div>
+      </div>
+      <div class="container" id="slider-ver-cnt">
+        <label for="slider-ud">上下</label>
+        <input type="range" class="slider" id="slider-ud" value="0" min="0" max="300">
+        <div class="slider-value" id="slider-val-ud">0px</div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    'use strict'
+    const shape = document.querySelector('#inner-cnt');
+    const sliderValueHor = document.querySelector('#slider-val-lr');
+    const sliderValueVert = document.querySelector('#slider-val-ud');
+    const horSlider = document.querySelector('#slider-lr');
+    const vertSlider = document.querySelector('#slider-ud');
+
+    // コードを効率化する対策を調べたら、イベントリスナーをまとめることも
+    // あったので、イベントオブジェクトを活躍してまとめました。
+    document.addEventListener("input", (e) => {
+      // 左右に形をずらす
+      if(e.target === horSlider) {
+        let newValue = horSlider.value;
+        sliderValueHor.textContent = `${newValue}px`;
+        shape.style.left = `${newValue}px`;
+      }
+      // 上下に形をずらす
+      if(e.target === vertSlider) {
+        let newValue = vertSlider.value;
+        sliderValueVert.textContent = `${newValue}px`;
+        shape.style.top = `${newValue}px`;
+      }
+    });
+  </script>
+</body>
+</html>

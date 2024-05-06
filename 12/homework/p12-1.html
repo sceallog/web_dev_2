@@ -1,0 +1,45 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>円を動かすアニメーショ（p12-1）</title>
+	<style>
+	canvas {border : 1px solid gray;}
+</style>
+</head>
+<body>
+	<h1>円を動かすアニメーション</h1>
+	<canvas width="640px" height="480px"></canvas>
+	<br><button id="btn">開始</button>
+
+	<script>
+    "use strict";
+    let c = {x: 0, y:0, r: 100};
+    let timerId = null;
+    const cv = document.querySelector("canvas");
+    const gc = cv.getContext("2d");
+    const btn = document.querySelector("#btn");
+    btn.addEventListener("click", () => {
+      if (timerId == null) {
+        timerId = setInterval(draw, 10);
+        btn.textContent = "停止";
+      } else {
+        clearInterval(timerId);
+        timerId = null;
+        btn.textContent = "開始"
+      }
+    });
+
+    function draw() {
+      c.x += 1;
+      c.y += 1;
+      gc.clearRect(0, 0, cv.width, cv.height);
+      gc.beginPath();
+      gc.fillStyle = "red";
+      gc.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+      gc.fill();
+    }
+	</script>
+</body>
+</html>

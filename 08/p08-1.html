@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>演習8-1 繰り返し</title>
+</head>
+<body>
+	<h3>だんだん大声</h3>
+	<p></p>
+	<script>
+    'use strict';
+    let message = '起きてください';
+    for (let i = 0; i < 5; i++) {
+      message += '!';
+      document.querySelector('p').innerHTML+=message + '<br>';
+    }
+	</script>
+</body>
+</html>

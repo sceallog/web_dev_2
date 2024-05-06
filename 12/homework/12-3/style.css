@@ -1,0 +1,44 @@
+canvas {
+  border: 1px solid grey;
+}
+
+#btn-cnt {
+  display: grid;
+  grid-template: 
+    [row1-start] "lu u ru" 50px [row1-end]
+    [row2-start] "l . r" 50px [row2-end]
+    [row3-start] "ld d rd" 50px [row3-end];
+  max-width: 300px;
+}
+
+#btn-lu {
+  grid-area: lu;
+}
+
+#btn-u {
+  grid-area: u;
+}
+
+#btn-ru {
+  grid-area: ru;
+}
+
+#btn-l {
+  grid-area: l;
+}
+
+#btn-r {
+  grid-area: r;
+}
+
+#btn-ld {
+  grid-area: ld;
+}
+
+#btn-d {
+  grid-area: d;
+}
+
+#btn-rd {
+  grid-area: rd;
+}

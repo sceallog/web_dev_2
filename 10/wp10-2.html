@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>入出力2 様々なイベント</title>
+	<style>
+		ul {
+			display: flex;
+			width: 500px;
+			justify-content: space-between;
+			list-style-type: none;
+			padding: 0;
+		}
+		li {
+			width:30%;
+			border: 1px solid #333;
+			line-height: 50px;
+			text-align: center;
+		}
+		#target {
+			width: 500px;
+			border: 1px solid #333;
+			line-height: 50px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h3>changeイベント</h3>
+	<select id="sel" name="station">
+		<option value="TOKYO">東京</option>
+		<option value="NAGOYA">名古屋</option>
+		<option value="OSAKA" selected>大阪</option>
+		<option value="FUKUOKA">福岡</option>
+	</select>
+	<span id="sel_result">ここに表示</span>
+	
+	<h3>マウスを乗せた場所の色を読み取り色を付けます、外すと元に戻る</h3>
+	<ul id="list">
+		<li>lightpink</li>
+		<li>lightblue</li>
+		<li>#cc7</li>
+	</ul>
+	<div id="target">色が変わります</div>
+	
+	<script>
+		"use strict";
+		//changeイベントを利用し、選択された内容を得る
+		const sel = document.querySelector('#sel');
+    sel.addEventListener("change", () => {
+      let result = document.querySelector("#sel_result");
+      result.textContent = sel.value; 
+    })
+		
+		//mouseover mouseout
+    const lists = document.querySelectorAll("#list li");
+    const target = document.querySelector('#target');
+    for (let list of lists) {
+      list.addEventListener("mouseover", () => {
+        target.style.backgroundColor = list.textContent;
+      });
+      list.addEventListener("mouseout", () => {
+        target.style.backgroundColor = '';
+      });
+    };
+
+
+	</script>
+</body>
+</html>

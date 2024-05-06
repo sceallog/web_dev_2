@@ -1,0 +1,44 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>運勢の占い (p09-1)</title>
+</head>
+<body>
+  <main>
+    <div class="container" id="input-cnt">
+      <input type="text" id="name-input">
+      <button id="uranai">占い</button>
+    </div>
+    <div class="container" id="result-cnt">
+      <p id="result"></p>
+    </div>
+  </main>
+
+  <script>
+    'use strict';
+    const resultArr = ['大吉', '中吉', '小吉', '未吉', '凶'];
+    const colourArr = ['greenyellow', 'chartreuse', 'gold', 'orange', 'red']
+    const button = document.querySelector('#uranai');
+    const result = document.querySelector('#result');
+    
+
+    button.addEventListener("click", () => {
+      let randNum = Math.floor(Math.random() * 5);
+      console.log(randNum);
+      const luck = resultArr[randNum];
+      const name = document.querySelector("#name-input").value
+      if (!name) {
+        window.alert("お名前を記入してください。")  
+      } else {
+      const message = `${name}さんの運勢<div id="luck-cnt">${luck}</div>`;
+      result.innerHTML = message;
+      document.querySelector("#luck-cnt").style.color = colourArr[randNum];
+      }
+    })
+  </script>
+</body>
+</html>

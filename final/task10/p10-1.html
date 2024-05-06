@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/p10-1.css">
+  <title>入力値を動的に得る</title>
+</head>
+<body>
+  <a href="../index.html" id="index">一覧</a>
+  <h1>10-1: 入力値を動的に得る</h1>
+
+  <!-- 表示させる文字を選択する -->
+  <span>文字:</span>
+  <div id="checkbox-cnt">
+    <!-- 苗字の選択肢 -->
+    <div id="last-name-chk-cnt">
+      <input type="checkbox" id="last-name-1" name="last-name" value="B">B
+      <input type="checkbox" id="last-name-2" name="last-name" value="u">u
+      <input type="checkbox" id="last-name-3" name="last-name" value="e">e
+      <input type="checkbox" id="last-name-4" name="last-name" value="t">t
+      <input type="checkbox" id="last-name-5" name="last-name" value="t">t
+      <input type="checkbox" id="last-name-6" name="last-name" value="n">n
+      <input type="checkbox" id="last-name-7" name="last-name" value="e">e
+      <input type="checkbox" id="last-name-8" name="last-name" value="r">r
+    </div>
+
+    <!-- 名前の選択肢 -->
+    <div id="first-name-chk-cnt">
+      <input type="checkbox" id="first-name-1" name="first-name" value="S">S
+      <input type="checkbox" id="first-name-2" name="first-name" value="v">v
+      <input type="checkbox" id="first-name-3" name="first-name" value="e">e
+      <input type="checkbox" id="first-name-4" name="first-name" value="n">n
+    </div>
+
+    <!-- 学生番号の選択肢 -->
+    <div id="student-id-chk-cnt">
+      <input type="checkbox" id="student-id-1" name="student-id" value="M">M
+      <input type="checkbox" id="student-id-2" name="student-id" value="2">2
+      <input type="checkbox" id="student-id-3" name="student-id" value="3">3
+      <input type="checkbox" id="student-id-4" name="student-id" value="W">W
+      <input type="checkbox" id="student-id-5" name="student-id" value="0">0
+      <input type="checkbox" id="student-id-6" name="student-id" value="0">0
+      <input type="checkbox" id="student-id-7" name="student-id" value="1">1
+      <input type="checkbox" id="student-id-8" name="student-id" value="2">2
+    </div>
+  </div>
+
+  <!-- フォントの大きさの選択肢 -->
+  <div id="font-size-cnt">
+    <label for="font-select">文字の大きさ：</label>
+    <select name="font-size" id="font-select">
+      <option value="26">26px</option>
+      <option value="30">30px</option>
+      <option value="32">32px</option>
+      <option value="34">34px</option>
+      <option value="36">36px</option>
+      <option value="38">38px</option>
+      <option value="40">40px</option>
+      <option value="42">42px</option>
+      <option value="44">44px</option>
+      <option value="46">46px</option>
+      <option value="48">48px</option>
+      <option value="50">50px</option>
+      <option value="52">52px</option>
+      <option value="54">54px</option>
+      <option value="56">56px</option>
+      <option value="58">58px</option>
+      <option value="60">60px</option>
+    </select>
+  </div>
+
+  <!-- フォントファミリーの選択肢 -->
+  <div id="font-family-cnt">
+    <div id="font-family-select">
+      <input type="radio" name="font-family" value="sans-serif">sans-serif
+      <input type="radio" name="font-family" value="serif">serif
+      <input type="radio" name="font-family" value="fantasy">fantasy
+      <input type="radio" name="font-family" value="cursive">cursive
+      <input type="radio" name="font-family" value="monospace">monospace
+    </div>
+  </div>
+
+  <!-- フォントの色の選択肢 -->
+  <div id="font-colour-cnt">
+    <input type="color" name="font-colour" id="font-colour-picker">
+  </div>
+  <hr>
+
+  <!-- 上記の全てを合わせた結果を表示する部分 -->
+  <div id="output-cnt"></div>
+
+<script src="js/p10-1.js"></script>
+</body>
+</html>

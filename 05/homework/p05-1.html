@@ -1,0 +1,61 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基礎代謝量の計算</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background">
+    <div id="input-card">
+      <h1>基礎代謝量計算</h1>
+      <div id="inputs">
+        <div id="height">
+          <label for="height-input">身長</label>
+          <input type="text" id="height-input" class="text-input">
+          <div>cm</div>
+        </div>
+        <div id="weight">
+          <label for="weight-input">体重</label>
+          <input type="text" id="weight-input" class="text-input"> 
+          <div>kg</div>
+        </div>
+        <div id="age">
+          <label for="age-input">年齢</label>
+          <input type="text" id="age-input" class="text-input"> 
+          <div>歳</div>
+        </div>
+        
+        <p id="result"></p>
+      </div>
+      <div id="button-container">
+        <button onclick="calculateMetabolism('male')">男性の基礎代謝量</button>
+        <button onclick="calculateMetabolism('female')">女性の基礎代謝量</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    "use strict";
+    
+    function calculateMetabolism(gender) {
+      let height = Number(document.querySelector("#height-input").value);
+      let weight = Number(document.querySelector("#weight-input").value);
+      let age = Number(document.querySelector("#age-input").value);
+      if (Number.isNaN(height) || Number.isNaN(weight) || Number.isNaN(age)) {
+        window.alert("身長、体重、および年齢は数値で入力してください。")
+      } else {
+        let calories;
+        if (gender === "male") {
+          calories = 66.47 + (13.75 * weight) + (5.0 * height) - (6.75 * age);
+        } else if (gender === "female") {
+          calories = 655.1 + (9.56 * weight) + (1.85 * height) - (4.68 * age);
+        }
+        calories = calories.toFixed(2);
+        document.querySelector("#result").textContent = "基礎代謝量： " + calories + " kcal";
+      }
+    }
+  </script>
+</body>
+</html>

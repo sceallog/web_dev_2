@@ -1,0 +1,41 @@
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  grid-template-rows: 100px 3em 100px;
+  grid-template-areas: 
+    'heading heading result'
+    'description description result'
+    'input input result';
+  margin: 20px;
+}
+
+h1 {
+  /* grid-column: 1 / span 2; */
+  grid-area: heading;
+  text-align: center;
+}
+
+#input-cnt {
+  grid-area: input;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+input {
+  max-width: 200px;
+}
+
+button {
+  max-width: 100px;
+  padding: 5px 10px;
+}
+
+p {
+  grid-area: description;
+}
+
+#occurrence-list {
+  grid-area: result;
+  list-style-type: none;
+}

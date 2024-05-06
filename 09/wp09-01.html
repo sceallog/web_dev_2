@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>関数の定義方法</title>
+</head>
+<body>
+
+	<script>
+		"use strict";
+		//関数宣言
+    function calcTriangle(base, height) {
+      return (base * height) / 2;
+    }
+
+		//関数式
+    const calcTriangle2 = function (base, height) {
+      return (base * height) / 2;
+    };
+
+		//アロー関数
+    const calcTriangle3 = (base, height) => {
+      return (base * height) / 2;
+    };
+
+    console.log(`三角形の面積＝${calcTriangle(2, 20)}`);
+    console.log(`三角形の面積＝${calcTriangle2(2, 20)}`);
+    console.log(`三角形の面積＝${calcTriangle3(2, 20)}`);
+	</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Ajax</title>
+  <style>
+    #content {
+      width: 300px;
+      height: 300px;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+<body>
+  <h3>Ajaxの例</h3>
+  <p>ボタンをクリックしたらdivの領域内に<br>サーバーから取得したファイルの中身を表示します</p>
+  <div id="content"></div>
+  <button id="btn">サーバからファイル取得</button>
+
+  <script>
+    document.querySelector("#btn").addEventListener("click",()=>{
+      //サーバとの要求／応答のやりとりを管理するオブジェクトを生成する
+      const req = new XMLHttpRequest();
+      //load時のリスナーを登録する
+      req.addEventListener("load",()=>{
+          getData(req);
+      });
+      // openでhttpリクエストを初期化,アクセス先URL(相対パス)を決める
+      req.open("GET", "data13-2.html");
+      // httpリクエスト送信 
+      req.send();
+    });
+    
+    function getData(req) {
+      const result = req.responseText;
+      document.querySelector("#content").innerHTML = result;
+      // console.log(req.status);
+      // console.log(req.statusText);
+      // console.log(req.responseURL);
+      // console.log(req.responseText);
+    }
+  </script>
+
+</body>
+</html>

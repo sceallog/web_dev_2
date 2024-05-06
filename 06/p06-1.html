@@ -1,0 +1,76 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p06-1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>数当てゲーム</h1>
+  <div class="container">
+    <div id="guess-container">
+      <div class="text-div">1から100の間、推測の数字を入力して「Guess」ボタンを押してください。</div>
+      <br>
+      <div class="text-div">ゲームをリセットするには「Reset」ボタンを押してください。</div>
+      <input type="text" id="user-guess">
+      <div id="button-container">
+        <button id="guess-btn" onclick="guessNumber()">Guess</button>
+        <button id="reset-btn" onclick="resetDisplay()">Reset</button>
+      </div>
+    </div>
+    <div id="result-container"></div>
+  </div>
+
+  <script>
+    "use strict";
+    let target = Math.floor(Math.random() * 100) + 1
+    let count = 0;
+
+    function guessNumber() {
+      let userGuess = Number(document.querySelector('#user-guess').value)
+      let result;
+      
+      
+      count += 1;
+      
+      const difference = target - userGuess;
+      
+      switch (true) {
+        case (userGuess < 1 || userGuess > 100 || isNaN(userGuess)): 
+          result = '1から100の間の数字のみ入力可能です。';
+          break;
+          case (userGuess < target):
+            result = (1 <= difference) && (difference <= 5) ? 
+            'おしい、それより大きい数です' : 'それより大きい数です';
+          break;
+        case (userGuess > target):
+          result = (-5 <= difference) && (difference <= -1) ? 
+            'おしい、それより小さい数です' : 'それより小さいです';
+            break;
+            case (userGuess === target):
+              result = '正解です';
+              break;
+            }
+            // 推測結果をDOMに追加するのに使うエレメントの生成
+            let resultContainer = document.querySelector('#result-container')
+            let resultDiv = document.createElement('div')
+
+            // 回数と結果の文字列を先作ったdivエレメントに導入
+            resultDiv.textContent = count + '回目：' + result;
+            
+            //上記のdivをDOMに追加
+            resultContainer.append(resultDiv);
+    };
+
+    function resetDisplay() {
+      count = 0;
+      document.querySelector('#result-container').textContent = '';
+      document.querySelector('#user-guess').value = '';
+      target = Math.floor(Math.random() * 100) + 1
+    }
+  </script>
+</body>
+</html>

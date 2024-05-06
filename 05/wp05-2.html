@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>リスト構造</title>
+</head>
+<body>
+	<h3>リスト構造</h3>
+	<ul id="list">
+		<li>京都</li>
+		<li>東京</li>
+		<li>札幌</li>
+	</ul>
+  <button onclick="showList()">内容確認</button>
+  <script>
+    "use strict";
+    function showList() {
+      let list = document.querySelector("#list");
+      window.alert("textContent=" + list.textContent);
+      window.alert("innerHTML=" + list.innerHTML);
+      list.innerHTML+="<li>New York</li>"
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>CSSアニメーション</title>
+  <style>
+    .s3 {
+      width: 200px; height: 200px;
+      border:3px solid green;
+      margin: 5px;
+      text-align: center;
+      line-height: 200px;
+      transition: transform 0.6s;
+    }
+
+    .a3 {
+      transform: translateX(300px);
+    }
+  </style>
+</head>
+<body>
+  <h3>CSSアニメーション練習</h3>
+  <div class="s3" id="div3">横に300px移動</div>
+  <script>
+    'use strict';
+    const div3 = document.querySelector('#div3');
+    div3.addEventListener('click', () => {
+      div3.classList.toggle('a3');
+    });
+  </script>
+</body>
+</html>

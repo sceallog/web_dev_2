@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>ボタンクリック</title>
+</head>
+<body>
+  <button onclick="show(1)">朝</button>
+  <button onclick="show(2)">夜</button>
+  <script>
+    function show(type) {
+      if (type === 1) {
+        window.alert("おはよう");
+      } else {
+        window.alert("こんばんは");
+      }
+    }
+  </script>
+</body>
+</html>

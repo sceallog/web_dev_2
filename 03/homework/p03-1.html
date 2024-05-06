@@ -1,0 +1,61 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p03-1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>自己紹介</h1>
+  <div class="introduction">
+    <button class="intro-btn" onclick="selfIntroduction('name')">氏名</button>
+    <button class="intro-btn" onclick="selfIntroduction('hobby')">趣味</button>
+    <button class="intro-btn" onclick="selfIntroduction('concentration')">専門分野</button>
+    <button class="intro-btn" onclick="selfIntroduction('film')">好きな映画</button>
+    <button class="intro-btn" onclick="selfIntroduction('learning')">最近の出来事</button>
+  </div>
+  
+  <button class="full-intro-btn" onclick="selfIntroduction('full_intro')">全部の紹介</button>
+  <p>結果はコンソールで確認</p>
+
+  <script>
+    // ボタンを押したら表示されるメッセージを配列で保管
+    let messages = [
+      "こんにちは！ビュットナー スヴェンです。",
+      "私の趣味は調理、サイクリング、落語とゲームです。",
+      "学校での専門分野は、ウェブシステム開発です。",
+      "好きな映画はいくつかありますが、その中ひとつは「リメンバー・ミー」です。",
+      "最近はアルバイトでGolangとDockerを使ってウェブ・サービスのバックエンドの開発を行なっています。非常に良い勉強になっています。"
+    ]
+
+    // ボタンで渡された引数によって表示するメッセージを判断。ボタンを追加してメッセージを設定していなければエラーメッセージをコンソールに表示させる。
+    function selfIntroduction(content) {
+      switch (content) {
+        case 'name':
+          console.log(messages[0])
+          break;
+        case 'hobby':
+          console.log(messages[1])
+          break;
+        case 'concentration':
+          console.log(messages[2])
+          break;
+        case 'film':
+          console.log(messages[3])
+          break;
+        case 'learning':
+          console.log(messages[4])
+          break;
+        case 'full_intro':
+          console.log(messages.join('\n'))
+          break;
+        default: 
+          console.log('メッセージを見つかりませんでした。')
+          break;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=MedievalSharp&family=Noto+Serif&family=Roboto&family=Ubuntu+Mono&display=swap');
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  height: 100vh;
+  /* background-color: #fefefe; */
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+#index {
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #ddd;
+}
+
+#index:hover {
+  background-color: yellowgreen;
+  border-color: orange;
+  color: black;
+}
+
+hr {
+  width: 100%;
+}
+
+input, select {
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+} 
+
+#font-colour-picker {
+  padding: 4px;
+}

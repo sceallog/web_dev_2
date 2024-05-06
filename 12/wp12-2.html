@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>タイマー</title>
+	<style>
+		#out {
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<p>0.5秒ごとにカウントアップ</p>
+	<p id="out">000</p>
+	<button id="btn">Start</button>
+
+	<script>
+		"use strict";
+    let count = 0;
+    let timerId = null;
+    document.querySelector("button"), addEventListener("click", () => {
+      if (timerId == null) {
+        timerId = setInterval(showCount, 500);
+      }
+    });
+
+    function showCount() {
+      count++;
+      const out = (`000${count}`).slice(-3);
+      document.querySelector("#out").textContent = out;
+      if (count >= 20) {
+        clearInterval(timerId);
+      }
+    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <title>配列の利用2</title>
+</head>
+<body>
+  <h3>履歴を配列に保存</h3>
+  単語を入力：<input type="text" id="word">
+  <button onclick="storeWord()">履歴表示</button>
+  <div id="history"></div>
+  <script>
+     "use strict";
+    let words = [];
+    function storeWord() {
+      let inputText = document.querySelector("#word");
+      let history = document.querySelector("#history");
+    
+      if (inputText.value) {
+        words.push(inputText.value);
+      }
+
+      history.textContent = words.join(' ')
+      inputText.value = '';
+    }
+  </script>
+</body>
+</html>

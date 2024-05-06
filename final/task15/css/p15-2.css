@@ -1,0 +1,107 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+body {
+  background-color: #D2B48C; 
+  font-family: 'DotGothic16', monospace;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#index {
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #ddd;
+}
+
+#index:hover {
+  background-color: yellowgreen;
+  border-color: orange;
+  color: black;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 0px #333;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+#button-cnt {
+  margin-top: 20px;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1.8rem;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  border: 2px outset #666;
+  background-color: #AC7339;
+  color: #000;
+  box-shadow: 2px 2px 0px #333;
+  min-width: 150px;
+  min-height: 50px;
+}
+
+button:hover {
+  background-color: #8B5E2F;
+} 
+
+button:disabled {
+  background-color: #aaa;
+  color: #555;
+}
+
+#janken-cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 50vw;
+  max-width: 80vw;
+  
+}
+
+#hands-cnt {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.hands {
+  text-align: center;
+  padding: 1em;
+  border: 4px solid #333;
+  border-radius: 10px;
+  background-color: #E6E0D8;
+}
+
+#computer-hand,
+#player-hand {
+  width: 200px;
+  height: 200px;
+}
+
+#result-cnt {
+  font-size: 1.5em;
+  margin-top: 1em; 
+  padding: 1em;
+  border: 4px solid #333;
+  border-radius: 10px;
+  background-color: #E6E0D8;
+}
+
+
+.invisible{
+  visibility: hidden;
+}

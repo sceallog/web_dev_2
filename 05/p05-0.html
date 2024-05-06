@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>演習：加算</title>
+
+  <style>
+    #calculator * {
+      display: inline;
+    }
+
+    button {
+      min-width: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- M23W0012 Buettner Sven -->
+  <h1>加算</h1>
+  <div id="calculator">
+    <input type="text" id="text1">
+    <div>+</div>
+    <input type="text" id="text2">
+    <button onclick="calculateSum()"> = </button>
+    <span id="outcome"></span>
+  </div>
+
+  <script>
+    function calculateSum() {
+      let value1 = Number(document.querySelector("#text1").value)
+      let value2 = Number(document.querySelector("#text2").value)
+
+      let outcomeSpan = document.querySelector("#outcome")
+
+      if (Number.isNaN(value1) || Number.isNaN(value2)) {
+        outcomeSpan.textContent = "加算は数値でのみ行えます。数字を入力してください。";
+      } else {
+        let sum = value1 + value2
+        outcomeSpan.textContent = sum;
+      }
+    }
+  </script>
+</body>
+</html>

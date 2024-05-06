@@ -1,0 +1,73 @@
+<!-- M23W0012 Buettner Sven -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p07-1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>犬の紹介</h1>
+  <div id="explanation">ボタンクリックで犬を紹介します！</div>
+  <div class="button-container" id="dog-button-cnt">
+    <button class="dog-intro-btn" onclick="fetchDog(0)">柴犬</button>
+    <button class="dog-intro-btn" onclick="fetchDog(1)">ビーグル</button>
+    <button class="dog-intro-btn" onclick="fetchDog(2)">ピカルディ・シープドッグ</button>
+    <button class="dog-intro-btn" onclick="fetchDog(3)">ゴールデンレトリーバー</button>
+  </div>
+  <div id="dog-intro-cnt">
+    <div class="container" id="dog-picture-cnt">
+      <img src="" id="dog-picture">
+    </div>
+    <div id="dog-info-cnt">
+      <h2 id="dog-info-title"></h2>
+      <div id="dog-info-text"></div>
+    </div>
+  </div>
+
+
+  <script>
+    'use strict';
+
+    // 犬種の写真リンク
+    const shibainu_link = 'https://upload.wikimedia.org/wikipedia/commons/5/58/Shiba_inu_taiki.jpg';
+    const beagle_link =  'https://upload.wikimedia.org/wikipedia/commons/d/d0/Beagle_puppy_Cadet_2.jpg';
+    const berger_picard_link =  'https://upload.wikimedia.org/wikipedia/commons/f/f3/Berger_Picard.jpg';
+    const golden_retriever_link =  'https://upload.wikimedia.org/wikipedia/commons/c/c1/A_Portrait_-_Watson_the_Golden_-_Sit_-_Flickr_-_pmarkham.jpg';
+
+    // 犬種の説明文のタイトル
+    const shibainu_title = '柴犬';
+    const beagle_title = 'ビーグル';
+    const berger_picard_title = 'ピカルディ・シープドッグ';
+    const golden_retriever_title = 'ゴールデンレトリーバー';
+
+    // 犬種の説明文
+    const shibainu_info = '柴犬（しばいぬ）は、日本原産の日本犬の一種。「しばけん」とも言われる。日本犬の中で唯一の小型犬で、オスは体高38 - 41 cm、メスは35 - 38 cmの犬種。基本的には小型犬に分類される。最近では中型犬に分類される事もある。日本の天然記念物に指定された7つの日本犬種（現存は6犬種）の1つで、指定は1936年（昭和11年）12月16日。日本における飼育頭数は最も多い。日本犬保存会（日保）によれば、現在日本で飼育されている日本犬種（6犬種）のうち、柴犬は約80%を占める。日本国外でも人気が高く、日本語の読みをそのままローマ字にした「Shiba Inu」、略称の「Shiba」という名前で呼ばれている。 (Wikipediaより)';
+
+    const beagle_info = 'ビーグル（英: Beagle）は、イギリス原産のセントハウンド（嗅覚ハウンド）犬種のひとつである。体高33〜40センチで、ハウンドとしてもっとも小さい。ザ・ケネルクラブやジャパンケネルクラブでは13インチ（33センチ）以上、16インチ（40センチ）以下のサイズが認められる。アメリカンケネルクラブでは、15インチ以下、13インチ以下の2種に分けられる。毛色はブラック・タン・ホワイトのトライカラーや、レッドアンドホワイトなどさまざまで、レバー色以外のハウンドカラーは認められる。耳は平均18cm。性格は活発でやんちゃ、遊び好きである。賢く、従順で、訓練もしやすい。頑健で病気にかかりにくいが、食欲旺盛で、食べ物に貪欲なので、太りやすい。また、 耳が垂れているため、蒸れて、外耳炎になりやすい。運動量はかなり必要である。また、身体の割に声の大きさが非常に大きい。(Wikipediaより)';
+    
+    const berger_picard_info = 'ピカルディ・シープドッグ（仏: Berger Picard）は、フランスのピカルディ地方原産の牧羊犬種のひとつである。9世紀ごろに作出された、フランスでは最も古い犬種のひとつでもある。主に牧羊犬として羊を誘導するが、牧牛犬として牛の誘導も行うことが出来る。この他、家畜や家禽をオオカミや泥棒から守る護畜犬や、家を見張る番犬などとしても用いられた。ピカルディが最も多く使役されていたソンム川沿いの谷間の地域が2度の世界大戦で戦場と化した為、多くの犬の命が奪われ絶滅の危機に陥った。戦後はわずかに残った個体をもとにブリーディングを進め、何とか生き延びることに成功した。しかし、その頭数は現在も非常に少なく、絶滅の危機が完全に回避されたとは言い切れない。(Wikipediaより)';
+
+    const golden_retriever_info = 'ゴールデン・レトリーバー（英: Golden Retriever）は、イギリス原産の大型犬である。個体によって、明るいクリーム色から暗い赤金色まで多彩な毛色を持つ。飾り毛は他の部分より明るい色で長く、ボディ前部、胸腹部、四肢後部及び尾下部を覆う。ダブルコートといい、羽毛のように柔らかく短いアンダーコート（下毛）及び弾力性のある長いトップコート（上毛）の二種類の毛がある。アンダーコートは防水性が高く、気温の低い季節でも冷水内で活動するのに適する。また体温調整の役目も担い、気温が上昇すると抜け落ち、低下すると再び生える。均整の取れた体付きであり、オスは体高58-61 cm、体重29-34 kg、メスは体高54-57 cm、体重24-29 kgで、理想的な体長と体高の比率は11：10である。頭部は割合に大きく、鼻は黒又は茶がかった黒色、耳は頬に沿って垂れ、アーモンド形の目を持つ。 (Wikipediaより)';
+
+    // それぞれ犬種の写真リンク、タイトル、説明書が入っている変数の配列
+    let dogs = [shibainu_link, beagle_link, berger_picard_link, golden_retriever_link];
+    let dogs_title = [shibainu_title, beagle_title, berger_picard_title, golden_retriever_title];
+    let dogs_info = [shibainu_info, beagle_info, berger_picard_info, golden_retriever_info];
+
+    function fetchDog(value) {
+      const picture = document.querySelector('#dog-picture');
+      const title = document.querySelector('#dog-info-title');
+      const info = document.querySelector('#dog-info-text');
+      const explanation = document.querySelector('#explanation');
+
+      explanation.style.display = 'none';
+      picture.setAttribute('src', dogs[value]);
+      title.textContent = dogs_title[value];
+      info.textContent = dogs_info[value];
+    }
+  </script>
+  </body>
+</body>
+</html>
